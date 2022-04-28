@@ -1,0 +1,23 @@
+	Pentru trimiterea cererilor de GET, POST si DELETE am facut 3 functii. Functia pentru GET primeste id-ul hostului, url-ul, un token JWT care
+demonstreaza faptul ca are acces la carti si un cookie care sa confirme ca e
+utilizatorul este autentificat. Functia intoarce un string corespunzator
+parametrilor primiti, astfel incat cererea sa fie valida. Functia POST
+primeste id-ul hostului, url-ul, tipul continutului din cerere, continutul si
+un token JWT care demonstreaza faptul ca utilizatorul are acces la carti. 
+Intoarce un string cu toate datele primite si cu lungimea continutului, astfel
+incat cererea sa fie valida. Functia DELETE primeste id-ul hostului, url-ul si
+un token JWT si intoarce un string cu aceste date.
+	Aplicatia accepta toate comenzile din cerinta si intoarce un mesaj de
+confirmare daca cererea trimisa a fost corespunzatoare, iar in caz contrar
+afiseaza un mesaj de eroare. Comenzile register si login primesc un username,
+o parola si le concateneaza intr-un string de tipul json, dupa care trimit o 
+cerere de tip POST. Functia login intoarce un cookie care sa confirme 
+autentificarea. Comanda enter_library trimite o cerere GET si intoarce un 
+token JWT, care este pastrat in variabila token si care sa confirme accesul in
+biblioteca. Comenzile get_books si get_book intorc un string de tipul json
+care contine informatii despre carte/carti. Acestea intorc un mesaj de eroare
+daca nu primesc un token JWT valid. Comanda delete primeste id-ul unei carti
+si o sterge din biblioteca. Intoarce un mesaj de eroare daca id-ul nu este
+valid sau daca nu a primit tokenul JWT. Comanda logout trimite o cerere de tip
+get pentru logout si sterge tokenul JWT curent si cookie-ul de autentificare.
+Daca cookie-ul de autentificare este NULL, intoarce un mesaj de eroare.
